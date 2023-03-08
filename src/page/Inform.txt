@@ -1,0 +1,445 @@
+  useDebugValue(isOnline ? 'Online' : 'Offline');
+
+//    ////Twitter messages Line code ////////////
+//    const [list , setList]=useState("enter messages")
+
+//     let a={
+//         name:list
+
+//    }
+//    <h1>name:{a.name.substring(0,6)}</h1>
+// <h1>{a.name.length?18:"jugal sharma"}</h1>
+// {/* <h1>{a.search(a.name)}</h1> */}
+
+//     <form action="">
+// <input type="text" name="" id="" onChange={(e)=>setList(e.target.value)}/>
+
+//     </form>
+
+
+//     //////////////////Changes Color UseInput
+
+//     import React,{useState , useRef} from 'react'
+// import {NavLink} from "react-router-dom"
+
+// function Home() {
+  
+// const [color , setColor]=useState("")
+
+
+//   return (
+//     <div>
+// <h1 style={{color:color}}>jugal sharma</h1>
+
+// <input type="text" name="" id="" value={color} onChange={(e)=>setColor(e.target.value)} />
+// {/*     
+// <button onClick={()=>setChangeColor('blue')} style={{color:changeColor}}/> */}
+//     </div>
+//   )
+// }
+
+// export default Home
+
+
+
+||||||||||||||||||||||||||||||||||Dark Color change 
+
+import React,{useState} from 'react'
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  return (
+    <div>
+
+<div className={darkMode ? 'dark-mode' : ''}>
+      <button onClick={toggleDarkMode}>
+        {darkMode ? 'Light mode' : 'Dark mode'}
+      </button>
+      <p style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)' }}>
+        This is some text
+      </p>
+    </div>
+
+    </div>
+  )
+}
+
+export default App
+
+
+\\\\\\css
+
+:root {
+  --bg-color: #f0f0f0; /* default background color */
+  --text-color: #333; /* default text color */
+}
+
+.dark-mode {
+  --bg-color: #222; /* dark background color */
+  --text-color: #fff; /* light text color */
+}
+
+
+
+|||||||||||||||||||||||||||| Dark chnage 
+
+
+
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
+
+  return (
+    <div className={darkMode ? 'dark-mode' : ''}>
+      <button onClick={handleDarkModeToggle}>Toggle Dark Mode</button>
+      <p>This is some text.</p>
+    </div>
+  );
+}
+
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode p {
+  color: white;
+}
+
+
+|||||||||||||Forms heandles 1::
+
+<input type="text" name="tile" onChange={Change} />
+<button onClick={Link}>onclick</button>
+
+
+const Change=(e)=>{
+  console.log(e.target.type ,e.target.name,e.target.value)
+}
+
+
+|||||Inpute handles Change
+
+  const [video  , setVideo]=useState({
+    view:"jugal",
+    name:"jugal",
+    boolean:true
+  })
+
+  console.log(video)
+const Change=(e)=>{
+
+  setVideo({...video, [e.target.name]:e.target.value})
+
+  console.log(video)
+ 
+}
+
+
+<input type="text" name="tiles" onChange={Change} />
+<h1>{video.tiles}</h1>
+<button >onclick</button>
+
+
+
+|||||||||||||||||||ValidestIon Forms
+
+
+<form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+     <p>  {errors.name && <span>{errors.name}</span>}</p> 
+      </label>
+      <br />
+      
+      <label>
+        Email:
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <p>  {errors.email && <span>{errors.email}</span>}</p>
+      </label>
+      <br />
+    
+
+      <label>
+        Password:
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <p> {errors.password && <span>{errors.password}</span>}</p> 
+      </label>
+
+      <br />
+      
+      <button type="submit">Submit</button>
+    </form>
+
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+  
+    const validate = () => {
+      const errors = {};
+  
+      if (!name) {
+        errors.name = 'Name is required';
+      }else if(name.length<7){
+        errors.name = 'add more word';
+      }
+  
+      if (!email) {
+        errors.email = 'Email is required';
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        errors.email = 'Email is invalid';
+      }
+  
+      if (!password) {
+        errors.password = 'Password is required';
+      }else if(password.length<7){
+
+        errors.password = 'enter more word';
+      }
+  
+      return errors;
+    };
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  
+      const errors = validate();
+  
+      if (Object.keys(errors).length === 0) {
+        // Submit form
+      } else {
+        setErrors(errors);
+      }
+
+      console.log(errors)
+    };
+
+
+
+    |||||||||||||||||||||||||||||||||||Form Check Files Information AND Image
+
+    const Change=(e)=>{
+
+let data=e.target.files[0]
+
+console.log(data.name)
+ 
+}
+
+
+<input type="file" name="tiles" onChange={Change} />
+
+
+
+
+||||||||||||||||||||UseMemo
+
+
+import React,{useRef,useState,useMemo} from 'react'
+
+function App() {
+
+
+const [count ,setCout]=useState(0);
+
+const [name , setName]=useState("")
+
+const noRender=useMemo(() =>{
+
+  return<>
+<h1>no redner {count ? count :"not smap"} --{name}</h1>
+
+<h1>useEffect vs Use Memo</h1>
+    
+  </>
+  
+},[name])
+
+
+  return (
+    <div>
+
+
+
+<h1>jugajh{count}</h1>
+
+
+<button onClick={(e)=>setCout(count+1)}>click</button>
+
+<button onClick={(e)=>setName(name+1)}>name</button>
+
+{noRender}
+
+    </div>
+  )
+}
+
+export default App
+
+
+
+||||||||||||||||||||||||Maping function React.jsx
+
+import React,{useState} from 'react'
+
+function App() {
+
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React' },
+    { id: 2, text: 'Build an app' },
+    { id: 3, text: 'Deploy to production' }
+  ]);
+  return (
+    <div>
+
+{todos.map(todo => (
+          <li key={todo.id}>
+            {todo.text}
+       
+          </li>
+        ))}
+
+
+
+
+
+
+
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+import React, { useState } from 'react';
+
+function Example() {
+  const [items, setItems] = useState(['apple', 'banana', 'orange']);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredItems = items.filter(item => item.includes(searchTerm));
+
+  return (
+    <div>
+      <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+      <ul>
+        {filteredItems.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+
+////////////////////////////
+
+
+
+////UseReducer|||||||||||||||||||||||||||||||||||
+
+import React,{useReducer} from 'react'
+const reducer=(state , action)=>{
+
+  if(action.type=== "INC"){
+
+    return state + 2;
+  }else if(action.type ==="DEC"){
+
+    return state -2;
+  }else if(action.type ==="MUL"){
+
+    return state *2;
+  }
+
+  // console.log(state , action)
+
+  return state
+}
+
+function App() {
+  const [state, dispatch]=useReducer(reducer , 0)
+  return (
+    <div>
+
+<h1>{state}</h1>
+      <button onClick={()=>dispatch({type:"INC"})}>increment</button>
+      <br />
+      <br />
+      <button onClick={()=>dispatch ({type:"DEC"})}>dencrement</button>
+      <br />
+      <br />      
+      <button onClick={()=>dispatch({type:"MUL"})}>multiply</button>
+    </div>
+  )
+}
+
+export default App
+
+
+/////////////////
+
+
+
+import React, { useState } from 'react';
+
+function App() {
+  const [students, setStudents] = useState([
+    { name: "jugal", class: "10th", room: "10", sex: "male" },
+    { name: "kanika", class: "20th", room: "69", sex: "female" },
+    { name: "anku", class: "30th", room: "99", sex: "male" },
+    { name: "karan", class: "40th", room: "100", sex: "male" },
+  ]);
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredStudents = students.filter((student) => {
+    return (
+      student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.class.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.room.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      student.sex.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
+  return (
+    <div>
+      <input type="text" name="" onChange={handleSearch} value={searchTerm} />
+      {filteredStudents.map((student) => {
+        return (
+          <>
+            <h1>name: {student.name}</h1>
+            <h1>class: {student.class}</h1>
+            <h1>room: {student.room}</h1>
+            <h1>sex: {student.sex}</h1>
+          </>
+        );
+      })}
+    </div>
+  );
+}
+
+export default App;
+
